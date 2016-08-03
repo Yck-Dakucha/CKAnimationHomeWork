@@ -14,6 +14,8 @@
 		70E0B8521D506CA20025602C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70E0B8501D506CA20025602C /* LaunchScreen.storyboard */; };
 		70E0B85C1D50725F0025602C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0B85B1D50725F0025602C /* AppDelegate.m */; };
 		70E0B8611D50732B0025602C /* CKAnimationCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0B8601D50732B0025602C /* CKAnimationCircle.m */; };
+		70E0B8651D507CFA0025602C /* CKCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0B8641D507CFA0025602C /* CKCircleView.m */; };
+		70E0B8681D507D5F0025602C /* CKCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0B8671D507D5F0025602C /* CKCircleLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		70E0B85B1D50725F0025602C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		70E0B85F1D50732B0025602C /* CKAnimationCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKAnimationCircle.h; sourceTree = "<group>"; };
 		70E0B8601D50732B0025602C /* CKAnimationCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKAnimationCircle.m; sourceTree = "<group>"; };
+		70E0B8631D507CFA0025602C /* CKCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCircleView.h; sourceTree = "<group>"; };
+		70E0B8641D507CFA0025602C /* CKCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleView.m; sourceTree = "<group>"; };
+		70E0B8661D507D5F0025602C /* CKCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCircleLayer.h; sourceTree = "<group>"; };
+		70E0B8671D507D5F0025602C /* CKCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +108,22 @@
 		70E0B85E1D5072F50025602C /* AnimationCircle */ = {
 			isa = PBXGroup;
 			children = (
+				70E0B8621D507CE60025602C /* CircleView */,
 				70E0B85F1D50732B0025602C /* CKAnimationCircle.h */,
 				70E0B8601D50732B0025602C /* CKAnimationCircle.m */,
 			);
 			path = AnimationCircle;
+			sourceTree = "<group>";
+		};
+		70E0B8621D507CE60025602C /* CircleView */ = {
+			isa = PBXGroup;
+			children = (
+				70E0B8631D507CFA0025602C /* CKCircleView.h */,
+				70E0B8641D507CFA0025602C /* CKCircleView.m */,
+				70E0B8661D507D5F0025602C /* CKCircleLayer.h */,
+				70E0B8671D507D5F0025602C /* CKCircleLayer.m */,
+			);
+			path = CircleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E0B8651D507CFA0025602C /* CKCircleView.m in Sources */,
 				70E0B85C1D50725F0025602C /* AppDelegate.m in Sources */,
 				70E0B84A1D506CA20025602C /* ViewController.m in Sources */,
+				70E0B8681D507D5F0025602C /* CKCircleLayer.m in Sources */,
 				70E0B8611D50732B0025602C /* CKAnimationCircle.m in Sources */,
 				70E0B8441D506CA20025602C /* main.m in Sources */,
 			);
@@ -333,6 +353,7 @@
 				70E0B8581D506CA20025602C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
