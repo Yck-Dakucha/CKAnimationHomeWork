@@ -64,14 +64,16 @@ typedef enum MovingPoint {
     //顶点ABCD到控制点的距离,AB圆弧之间的控制点为c1,c2
     CGFloat offset = self.outsideRect.size.width * 2 * tan(M_PI/8)/3;
     
+    CGFloat movedDistance = 20 * fabs(self.progress - 0.5);
+    
     //方便下方计算各点坐标，先算出外接矩形的中心点坐标,注意origin是顶点坐标
     CGPoint rectCenter = CGPointMake(self.outsideRect.origin.x + self.outsideRect.size.width/2 , self.outsideRect.origin.y + self.outsideRect.size.height/2);
     
     //各点的坐标
-    CGPoint pointA = CGPointMake(rectCenter.x, self.outsideRect.origin.y);
-    CGPoint pointB = CGPointMake(rectCenter.x + self.outsideRect.size.width/2, rectCenter.y);
-    CGPoint pointC = CGPointMake(rectCenter.x, self.outsideRect.origin.y + self.outsideRect.size.height);
-    CGPoint pointD = CGPointMake(rectCenter.x - self.outsideRect.size.width/2, rectCenter.y);
+    CGPoint pointA = CGPointMake(rectCenter.x, self.outsideRect.origin.y + movedDistance);
+    CGPoint pointB = CGPointMake(self.movePoint == POINT_D ? rectCenter.x + self.outsideRect.size.width/2 : rectCenter.x + self.outsideRect.size.width/2 + movedDistance * 2, rectCenter.y);
+    CGPoint pointC = CGPointMake(rectCenter.x, self.outsideRect.origin.y + self.outsideRect.size.height - movedDistance);
+    CGPoint pointD = CGPointMake(self.movePoint == POINT_D ? self.outsideRect.origin.x - movedDistance * 2 : self.outsideRect.origin.x, rectCenter.y);
     
     //控制点坐标
     CGPoint c1 = CGPointMake(pointA.x + offset, pointA.y);
@@ -82,6 +84,15 @@ typedef enum MovingPoint {
     CGPoint c6 = CGPointMake(pointD.x, pointD.y + offset);
     CGPoint c7 = CGPointMake(pointD.x, pointD.y - offset);
     CGPoint c8 = CGPointMake(pointA.x - offset, pointA.y);
+    
+    //外接虚线矩形
+    UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:self.outsideRect];
+    CGContextAddPath(ctx, rectPath.CGPath);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(ctx, 1.0);
+    CGFloat dash[] = {5.0, 5.0};
+    CGContextSetLineDash(ctx, 0.0, dash, 2); //1
+    CGContextStrokePath(ctx); //给线条填充颜色
     
     //画出圆形
     UIBezierPath *ovalPath = [UIBezierPath bezierPath];
@@ -98,10 +109,58 @@ typedef enum MovingPoint {
     CGContextSetLineDash(ctx, 0, NULL, 0);
     CGContextDrawPath(ctx, kCGPathFillStroke); //同时给线条和线条包围的内部区域填充颜色
     
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
+    CGContextSetFillColorWithColor(ctx, [UIColor blueColor].CGColor);
+    NSArray *points = @[[NSValue valueWithCGPoint:pointA],[NSValue valueWithCGPoint:pointB],[NSValue valueWithCGPoint:pointC],[NSValue valueWithCGPoint:pointD],[NSValue valueWithCGPoint:c1],[NSValue valueWithCGPoint:c2],[NSValue valueWithCGPoint:c3],[NSValue valueWithCGPoint:c4],[NSValue valueWithCGPoint:c5],[NSValue valueWithCGPoint:c6],[NSValue valueWithCGPoint:c7],[NSValue valueWithCGPoint:c8]];
+    [self drawPoint:points withContext:ctx];
+    
+    //连接辅助线
+    UIBezierPath *helperline = [UIBezierPath bezierPath];
+    [helperline moveToPoint:pointA];
+    [helperline addLineToPoint:c1];
+    [helperline addLineToPoint:c2];
+    [helperline addLineToPoint:pointB];
+    [helperline addLineToPoint:c3];
+    [helperline addLineToPoint:c4];
+    [helperline addLineToPoint:pointC];
+    [helperline addLineToPoint:c5];
+    [helperline addLineToPoint:c6];
+    [helperline addLineToPoint:pointD];
+    [helperline addLineToPoint:c7];
+    [helperline addLineToPoint:c8];
+    [helperline closePath];
+    
+    CGContextAddPath(ctx, helperline.CGPath);
+    
+    CGFloat dash2[] = {2.0, 2.0};
+    CGContextSetLineDash(ctx, 0.0, dash2, 2);
+    CGContextStrokePath(ctx); //给辅助线条填充颜色
+}
+
+//ctx字面意思是上下文，你可以理解为一块全局的画布。也就是说，一旦在某个地方改了画布的一些属性，其他任何使用画布的属性的时候都是改了之后的。比如上面在 //1 中把线条样式改成了虚线，那么在下文 //2 中如果不恢复成连续的直线，那么画出来的依然是//1中的虚线样式。
+
+//在某个point位置画一个点，方便观察运动情况
+-(void)drawPoint:(NSArray *)points withContext:(CGContextRef)ctx{
+    for (NSValue *pointValue in points) {
+        CGPoint point = [pointValue CGPointValue];
+        CGContextFillRect(ctx, CGRectMake(point.x - 2,point.y - 2,4,4));
+    }
 }
 
 - (void)setProgress:(CGFloat)progress {
     _progress = progress;
+    
+    //只要外接矩形在左侧，则改变B点；在右边，改变D点
+    if (progress <= 0.5) {
+        
+        self.movePoint = POINT_B;
+        NSLog(@"B点动");
+        
+    }else{
+        
+        self.movePoint = POINT_D;
+        NSLog(@"D点动");
+    }
     
     CGFloat origin_x = self.position.x - outsideRectSize/2 + (progress - 0.5)*(self.frame.size.width - outsideRectSize);
     CGFloat origin_y = self.position.y - outsideRectSize/2;
