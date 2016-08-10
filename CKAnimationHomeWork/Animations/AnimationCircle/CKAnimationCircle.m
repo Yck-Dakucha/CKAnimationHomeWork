@@ -26,7 +26,6 @@
     self.circleView.circleLayer.progress = self.slider.value;
 }
 
-
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     self.currentValueLabel.text = [NSString stringWithFormat:@"Current:  %f",sender.value];
     self.circleView.circleLayer.progress = sender.value;

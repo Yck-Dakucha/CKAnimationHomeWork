@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--家庭作业-->
+        <!--AnimationHomeWork-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                             <constraint firstItem="Bq9-uw-IfY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o6d-Xp-JPR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="家庭作业" id="GwT-ch-NGW"/>
+                    <navigationItem key="navigationItem" title="AnimationHomeWork" id="GwT-ch-NGW"/>
                     <connections>
                         <outlet property="tableView" destination="Bq9-uw-IfY" id="oB3-Q8-44e"/>
                     </connections>
@@ -104,6 +104,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRg-ZF-VuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1803" y="-796"/>
+        </scene>
+        <!--Animation CurveVC-->
+        <scene sceneID="zga-S0-nhX">
+            <objects>
+                <viewController storyboardIdentifier="CKAnimationCurveVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bpG-xG-xRM" customClass="CKAnimationCurveVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZeL-pe-alL"/>
+                        <viewControllerLayoutGuide type="bottom" id="EhV-0l-aWD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hga-ph-CWv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FDI-QD-PHX">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bpG-xG-xRM" id="kOk-Q3-r2H"/>
+                                    <outlet property="delegate" destination="bpG-xG-xRM" id="2MU-5n-KDC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FDI-QD-PHX" firstAttribute="leading" secondItem="Hga-ph-CWv" secondAttribute="leading" id="8TE-IE-cbW"/>
+                            <constraint firstItem="FDI-QD-PHX" firstAttribute="top" secondItem="ZeL-pe-alL" secondAttribute="bottom" id="LJz-5v-yqd"/>
+                            <constraint firstItem="EhV-0l-aWD" firstAttribute="top" secondItem="FDI-QD-PHX" secondAttribute="bottom" id="cVR-Zd-LKF"/>
+                            <constraint firstAttribute="trailing" secondItem="FDI-QD-PHX" secondAttribute="trailing" id="r8b-hl-spA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="FDI-QD-PHX" id="6qM-13-nd4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Psa-AE-2Cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803" y="-115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jca-RL-H5L">

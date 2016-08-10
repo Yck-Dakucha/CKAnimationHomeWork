@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		705B506F1D5875A000EAB5D3 /* CKAnimationCurveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 705B506E1D5875A000EAB5D3 /* CKAnimationCurveVC.m */; };
+		705C1B831D59798E00A8631A /* UIView+Convenient.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C1B821D59798E00A8631A /* UIView+Convenient.m */; };
+		705C1B871D597DF100A8631A /* CKLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C1B861D597DF100A8631A /* CKLabelView.m */; };
+		705C1B8B1D59A74700A8631A /* CKCurveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C1B8A1D59A74700A8631A /* CKCurveView.m */; };
+		705C1B8E1D59AE8300A8631A /* CKCurveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C1B8D1D59AE8300A8631A /* CKCurveLayer.m */; };
 		70E0B8441D506CA20025602C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0B8431D506CA20025602C /* main.m */; };
 		70E0B84A1D506CA20025602C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0B8491D506CA20025602C /* ViewController.m */; };
 		70E0B84D1D506CA20025602C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70E0B84B1D506CA20025602C /* Main.storyboard */; };
@@ -19,6 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		705B506D1D5875A000EAB5D3 /* CKAnimationCurveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKAnimationCurveVC.h; sourceTree = "<group>"; };
+		705B506E1D5875A000EAB5D3 /* CKAnimationCurveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKAnimationCurveVC.m; sourceTree = "<group>"; };
+		705C1B811D59798E00A8631A /* UIView+Convenient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenient.h"; sourceTree = "<group>"; };
+		705C1B821D59798E00A8631A /* UIView+Convenient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenient.m"; sourceTree = "<group>"; };
+		705C1B851D597DF100A8631A /* CKLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLabelView.h; sourceTree = "<group>"; };
+		705C1B861D597DF100A8631A /* CKLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLabelView.m; sourceTree = "<group>"; };
+		705C1B891D59A74700A8631A /* CKCurveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCurveView.h; sourceTree = "<group>"; };
+		705C1B8A1D59A74700A8631A /* CKCurveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCurveView.m; sourceTree = "<group>"; };
+		705C1B8C1D59AE8300A8631A /* CKCurveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCurveLayer.h; sourceTree = "<group>"; };
+		705C1B8D1D59AE8300A8631A /* CKCurveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCurveLayer.m; sourceTree = "<group>"; };
 		70E0B83F1D506CA20025602C /* CKAnimationHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKAnimationHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70E0B8431D506CA20025602C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70E0B8481D506CA20025602C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -48,6 +63,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		705B506C1D581DBF00EAB5D3 /* AnimatiedCurve */ = {
+			isa = PBXGroup;
+			children = (
+				705C1B841D597DD800A8631A /* LabelView */,
+				705C1B881D59A72D00A8631A /* CurveView */,
+				705B506D1D5875A000EAB5D3 /* CKAnimationCurveVC.h */,
+				705B506E1D5875A000EAB5D3 /* CKAnimationCurveVC.m */,
+			);
+			path = AnimatiedCurve;
+			sourceTree = "<group>";
+		};
+		705C1B801D59795A00A8631A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				705C1B811D59798E00A8631A /* UIView+Convenient.h */,
+				705C1B821D59798E00A8631A /* UIView+Convenient.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		705C1B841D597DD800A8631A /* LabelView */ = {
+			isa = PBXGroup;
+			children = (
+				705C1B851D597DF100A8631A /* CKLabelView.h */,
+				705C1B861D597DF100A8631A /* CKLabelView.m */,
+			);
+			path = LabelView;
+			sourceTree = "<group>";
+		};
+		705C1B881D59A72D00A8631A /* CurveView */ = {
+			isa = PBXGroup;
+			children = (
+				705C1B891D59A74700A8631A /* CKCurveView.h */,
+				705C1B8A1D59A74700A8631A /* CKCurveView.m */,
+				705C1B8C1D59AE8300A8631A /* CKCurveLayer.h */,
+				705C1B8D1D59AE8300A8631A /* CKCurveLayer.m */,
+			);
+			path = CurveView;
+			sourceTree = "<group>";
+		};
 		70E0B8361D506CA20025602C = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				70E0B8591D50725F0025602C /* App */,
+				705C1B801D59795A00A8631A /* Helper */,
 				70E0B85D1D5072B10025602C /* Animations */,
 				70E0B8481D506CA20025602C /* ViewController.h */,
 				70E0B8491D506CA20025602C /* ViewController.m */,
@@ -101,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				70E0B85E1D5072F50025602C /* AnimationCircle */,
+				705B506C1D581DBF00EAB5D3 /* AnimatiedCurve */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -199,9 +256,14 @@
 			files = (
 				70E0B8651D507CFA0025602C /* CKCircleView.m in Sources */,
 				70E0B85C1D50725F0025602C /* AppDelegate.m in Sources */,
+				705B506F1D5875A000EAB5D3 /* CKAnimationCurveVC.m in Sources */,
+				705C1B831D59798E00A8631A /* UIView+Convenient.m in Sources */,
 				70E0B84A1D506CA20025602C /* ViewController.m in Sources */,
 				70E0B8681D507D5F0025602C /* CKCircleLayer.m in Sources */,
 				70E0B8611D50732B0025602C /* CKAnimationCircle.m in Sources */,
+				705C1B871D597DF100A8631A /* CKLabelView.m in Sources */,
+				705C1B8E1D59AE8300A8631A /* CKCurveLayer.m in Sources */,
+				705C1B8B1D59A74700A8631A /* CKCurveView.m in Sources */,
 				70E0B8441D506CA20025602C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

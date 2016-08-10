@@ -61,6 +61,7 @@ typedef enum MovingPoint {
 //         \ __ /
 //           C
 - (void)drawInContext:(CGContextRef)ctx {
+    [super drawInContext:ctx];
     //顶点ABCD到控制点的距离,AB圆弧之间的控制点为c1,c2
     CGFloat offset = self.outsideRect.size.width * 2 * tan(M_PI/8)/3;
     

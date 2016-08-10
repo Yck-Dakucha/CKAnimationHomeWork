@@ -20,7 +20,8 @@
 - (NSArray *)dataArray {
     if (!_dataArray) {
         _dataArray = @[
-                       @"CKAnimationCircle"
+                       @"CKAnimationCircle",
+                       @"CKAnimationCurveVC"
                        ];
     }
     return _dataArray;
